@@ -15,7 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('no_hp');
+            $table->integer('jumlah_pembelian');
+            $table->integer('harga_beli');
+            $table->text('alamat');
             $table->timestamps();
+
+
         });
     }
 
