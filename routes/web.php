@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
-use App\Http\Controllers\SabunMandi;
+use App\Http\Controllers\PenjualanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,5 +27,4 @@ Route::get('/halo', function () {
     echo "hallo laravel";
 });
 
-Route::get('/sabun', [SabunMandi::class, 'index']
-)->name('sabun');
+Route::get('/transaksi', [PenjualanController::class,'index']);
