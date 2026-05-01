@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelanggans', function (Blueprint $table) {
+        Schema::create('pembelians_tabel', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('no_hp');
-            $table->text('alamat')->nullable();
+
+            $table->unsignedBigInteger('id_suplier');
+            $table->foreign('id_suplier')->references('id')->on('supliers_tabel');
+
+            //data transaksi
+            $table->date('tanggal');
+            $table->integer('total_harga');
             $table->timestamps();
         });
     }
@@ -24,7 +28,8 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
+    
     {
-        Schema::dropIfExists('pelanggans');
+        Schema::dropIfExists('pembelians_tabel');
     }
 };

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\PenjualanController;
+use App\Http\Controllers\PelangganController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,11 +21,12 @@ Route::get('/balik', function () {
     echo "<a href='" . route('show') . "'>kembali ke halaman utama</a>";
 })->name('balik');
 
-Route::get('/barang', [BarangController::class,'index']
-)->name('barang');
+Route::resource('barang', BarangController::class);
 
 Route::get('/halo', function () {
     echo "hallo laravel";
 });
 
-Route::get('/transaksi', [PenjualanController::class,'index']);
+Route::resource('penjualan', PenjualanController::class);
+
+Route::resource('pelanggan', PelangganController::class);
