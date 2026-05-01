@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pembelian;
+use App\Models\Barang;
+use App\Models\BarangMasuk;
 
 class DetailPembelian extends Model
 {

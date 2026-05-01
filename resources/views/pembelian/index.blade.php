@@ -1,47 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Daftar Pembelian</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
     <h1>Daftar Pembelian</h1>
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Tanggal Pembelian</th>
-                <th>Total</th>
-                <th>ID Suplier</th>
-                <!-- Add other relevant columns from your Pembelian model -->
+                <th>Tanggal</th>
+                <th>Total Harga</th>
+                <th>Suplier</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($pembelian as $item)
+            @forelse ($pembelians as $item)
             <tr>
                 <td>{{ $item->id }}</td>
-                <td>{{ $item->tanggal_pembelian }}</td>
-                <td>{{ $item->total }}</td>
-                <td>{{ $item->id_suplier }}</td>
-                <!-- Add other relevant data fields -->
+                <td>{{ $item->tanggal }}</td>
+                <td>Rp {{ number_format($item->total_harga, 0, ',', '.') }}</td>
+                <td>{{ optional($item->suplier)->nama_suplier ?? $item->id_suplier }}</td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="4" class="text-center">Belum ada data pembelian.</td>
+            </tr>
+            @endforelse
         </tbody>
     </table>
-</body>
-</html>
+</div>
+@endsection

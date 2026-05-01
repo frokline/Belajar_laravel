@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\DetailPenjualan;
 
-class detailpenjualanController extends Controller
+class DetailPenjualanController extends Controller
 {
-    //
+    public function index()
+    {
+        $detailPenjualans = DetailPenjualan::with(['penjualan', 'barang'])->get();
+        return view('detailpenjualan.index', compact('detailPenjualans'));
+    }
 }

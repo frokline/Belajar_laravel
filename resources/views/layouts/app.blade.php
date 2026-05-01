@@ -20,6 +20,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('penjualan.index') }}">Penjualan</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pembelian.index') }}">Pembelian</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('suplier.index') }}">Suplier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('detailpenjualan.index') }}">Detail Jual</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('detailpembelian.index') }}">Detail Beli</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('barangmasuk.index') }}">Barang Masuk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.index') }}">User</a>
+                </li>
             </ul>
         </div>
     </nav>

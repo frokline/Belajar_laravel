@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\DetailPembelian;
 
-class detailpembelianController extends Controller
+class DetailPembelianController extends Controller
 {
-    //
+    public function index()
+    {
+        $detailPembelians = DetailPembelian::with(['pembelian', 'barang', 'barang_masuk'])->get();
+        return view('detailpembelian.index', compact('detailPembelians'));
+    }
 }
